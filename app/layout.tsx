@@ -1,6 +1,17 @@
-import '@/app/ui/global.css'
-import {Fonts} from "@/app/ui/fonts";
-import {clsx} from "clsx";
+import '@/app/ui/global.css';
+import { Fonts } from '@/app/ui/fonts';
+import { clsx } from 'clsx';
+
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: {
+    template: '%s | Acme Dashboard',
+    default: 'Acme Dashboard',
+  },
+  description: 'The official Next.js Learn Dashboard built with App Router.',
+  metadataBase: new URL('https://next-learn-dashboard.vercel.sh'),
+};
 
 export default function RootLayout({
   children,
@@ -9,7 +20,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={clsx(Fonts.inter.className, 'antialiased')}>{children}</body>
+      <body className={clsx(Fonts.inter.className, 'antialiased')}>
+        {children}
+      </body>
     </html>
   );
 }
